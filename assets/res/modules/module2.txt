@@ -1,0 +1,58 @@
+ModuleId[Stuhltracker_old]
+ModuleName[Alter Stuhlgangtracker]
+ModuleAddresses[address=poopseries;label=Stuhlgang-Daten;description=An dieser Stelle werden deine Stuhlgangs-Daten erfasst.]
+ModuleIcon[toilet]
+ModuleInfo[Das Stuhltracker Modul hilft Dir dabei deinen Stuhl zu tracken es sollte für Dich damit kein Problem sein deinen Stuhl im Blick zu halten.]
+ModuleFABAction[Neuer Eintrag]
+TimeSeries[address=poopseries]{date,consistency,pain,color,poop}
+ValueLabelPairs[name=poopseries.pain;values=0,1;labels=keine Schmerzen,Schmerzen]
+ValueLabelPairs[name=poopseries.value;values=0,1;labels=kein Stuhl,Stuhl]
+ValueIconPairs[name=poopseries.consistency;values=Einzelne, feste Kügelchen#Flüssig, ohne feste Bestandteile#Einzelne, weiche Klümpchen#Wurstförmig mit glatter Oberfläche#Wurstförmig, aber klumpig#Wurstförmig, mit rissiger Oberfläche#Sehr weiche, breiige Klümpchen#N/A;icons=EinzFest_56px.svg,Flue_56px.svg,EinzWeich_56px.svg,WurstGlatOber_56px.svg,WurstKlum_56px.svg,WurstRissOber_56px.svg,SehrWeich_56px.svg,Nichts_56px.svg]
+HandleAction[on=action;key=poopseries;action=Neuer Eintrag:mode=edit]
+HandleAction[on=action;key=FAB;action=Neuer Eintrag:mode=create]
+
+DashboardWidget
+StackedChartSpark[domain=week;datasrc=poopseries.date,poopseries.color;height=100]
+
+Modal[title=Neuer Eintrag;data=poopseries:element;modes=create,edit;edit_data=poopseries:select;trigger_last_entry=true]
+Text[text=Zeitpunkt]{text=h6}
+DateTime[data=.date]
+Text[text=Hast Du Stuhl abgesetzt?]{text=h6}
+SingleChoicePicker[data=.value;values=1,0;labels=Ja,Nein;defaultvalue=1]
+Text[text=Hattest Du Schmerzen beim Stuhlen?]{text=h6}
+SingleChoicePicker[data=.pain;values=1,0;labels=Ja,Nein;defaultvalue=0]
+Text[text=Welche Farbe hatte der Stuhl?]{text=h6}
+ColorPicker[data=.color]
+Text[text=Wie ist die Konsistenz?]{text=h6}
+SelectTile[data=.consistency;dataparent=poopseries;defaultvalue=N/A;choices=Einzelne, feste Kügelchen#Wurstförmig, aber klumpig#Wurstförmig, mit rissiger Oberfläche#Wurstförmig mit glatter Oberfläche#Einzelne, weiche Klümpchen#Sehr weiche, breiige Klümpchen#Flüssig, ohne feste Bestandteile]
+Text[text=Wähle Assoziationen]{text=h6}
+ChipInput[dataparent=poopseries;data=.tags;defaultvalue=emptydefault]
+Button[label=Speichern;action=saveandclose]
+Button[label=Löschen;action=deleteandclose;mode=edit]
+
+Tab[Tag]
+StackedChartSpark[domain=day;datasrc=poopseries.date,poopseries.color;height=200;accumulate=add]
+TimeSeriesStatistics[timespan=day;datasrc=poopseries;accumulate=count;middlestring=x Stuhl;decimal=0]
+TimeSeriesList[datasrc=poopseries;items=.date,.pain,.value,.tags;title=.consistency;timespan=day;icon=.consistency;expanded=true]
+
+Tab[Woche]
+StackedChartSpark[domain=week;datasrc=poopseries.date,poopseries.color;height=200;accumulate=add]
+TimeSeriesStatistics[timespan=week;datasrc=poopseries;accumulate=count;middlestring=x Stuhl;decimal=0]
+TimeSeriesList[datasrc=poopseries;items=.date,.pain,.value,.tags;title=.consistency;timespan=week;icon=.consistency]
+
+Tab[Monat]
+StackedChartSpark[domain=month;datasrc=poopseries.date,poopseries.color;height=200;accumulate=add]
+TimeSeriesStatistics[timespan=month;datasrc=poopseries;accumulate=count;middlestring=x Stuhl;decimal=0]
+TimeSeriesList[datasrc=poopseries;items=.date,.pain,.value,.tags;title=.consistency;timespan=month;icon=.consistency]
+
+
+PDFReport
+Text[text=Modul: Stuhltracker;size=20]
+SizedBox[height=30]
+Text[text=Stuhlgang in den letzten 30 Tagen;size=24]
+SizedBox[height=15]
+TimeSeriesBarChart[domain=month;datasrc=poopseries.date,poopseries.color]
+SizedBox[height=35]
+Text[text=Einträge;size=24]
+SizedBox[height=10]
+TimeSeriesToTable[series=poopseries;show=date,color,consistency,tags,pain,value;titles=Datum,Farbe,Konsistenz,Tags,Schmerz,Stuhl;types=date,color,text,list,number,number]

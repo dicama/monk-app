@@ -1,0 +1,10 @@
+ModuleId[Module3]
+ModuleName[Darmkrebs Info]
+ModuleIcon[informationOutline]
+
+Page[base=column]
+WebView[https://www.krebshilfe.de/informieren/ueber-krebs/haeufige-krebsarten/darmkrebs/]
+
+
+
+

@@ -1,0 +1,14 @@
+ModuleId[Module4]
+ModuleName[Motivierende Zitate]
+ModuleIcon[meditation]
+ModuleInfo[Motiverende und inspirierende Zitate von berühmten Persönlichkeiten füt Dich.]
+ModuleAddresses[address=citstartdate;label=Datumswert;description=Datumswert]
+
+DashboardWidget
+CitationExtractor[citationFile=zitate.csv;maxNumber=1;height=120;dateaddress=citstartdate]
+
+Page
+Text[text=Zitat des Tages]{text=h6}
+Text[text= ]{text=h5}
+Text[text= ]{text=h5}
+CitationExtractor[citationFile=zitate.csv;maxNumber=99999;height=500;dateaddress=citstartdate]

@@ -1,0 +1,45 @@
+ModuleId[Gewichttracker]
+ModuleName[Gewichttracker]
+ModuleAddresses[address=weightseries;label=Gewichtsdaten;description=An dieser Stelle werden deine Gewichtsdaten erfasst.]
+ModuleIcon[weightKilogram]
+ModuleInfo[Das Gewichttracker Modul hilft Dir dabei deinen Gewicht zu tracken es sollte für Dich damit kein Problem sein dein Gewicht im Blick zu halten.]
+ModuleFABAction[Neuer Eintrag]
+TimeSeries[address=weightseries]{date,value,color}
+HandleAction[on=action;key=weightseries;action=Neuer Eintrag:mode=edit]
+HandleAction[on=action;key=FAB;action=Neuer Eintrag:mode=create]
+
+DashboardWidget
+LineTSChart[domain=week;datasrc=weightseries.date,weightseries.color;height=70;accumulate=avg]
+
+Modal[title=Neuer Eintrag;data=weightseries:element;modes=create,edit;edit_data=weightseries:select;trigger_last_entry=true]
+Text[text=Zeitpunkt]{text=h6}
+DateTime[data=.date]
+Text[text=Wähle Dein heutiges Gewicht]{text=h6}
+NumberPickerElement[data=.value;defaultvalue=72.5]
+Button[label=Speichern;action=saveandclose]
+Button[label=Löschen;action=deleteandclose;mode=edit]
+
+Tab[Woche]
+LineTSChart[domain=week;datasrc=weightseries.date,weightseries.color;height=120;accumulate=avg]
+TimeSeriesStatistics[timespan=week;datasrc=weightseries;accumulate=avg;middlestring= kg im Mittel]
+TimeSeriesList[datasrc=weightseries;items=.date;title=.value;timespan=week;staticicon=weightKilogram]
+
+Tab[Monat]
+LineTSChart[domain=month;datasrc=weightseries.date,weightseries.color;height=120;accumulate=avg]
+TimeSeriesStatistics[timespan=month;datasrc=weightseries;accumulate=avg;middlestring= kg im Mittel]
+TimeSeriesList[datasrc=weightseries;items=.date;title=.value;timespan=month;staticicon=weightKilogram]
+
+
+PDFReport
+Text[text=Modul: Gewichtstracker;size=20]
+SizedBox[height=30]
+Text[text=Gewichtsverlauf in den letzten 30 Tagen;size=24]
+SizedBox[height=15]
+TimeSeriesChart[domain=month;datasrc=weightseries.date,weightseries.color]
+SizedBox[height=35]
+Text[text=Einträge;size=24]
+SizedBox[height=10]
+TimeSeriesToTable[series=weightseries;show=date,value;titles=Datum,Gewicht in kg;types=date,number]
+
+
+

@@ -1,0 +1,12 @@
+ModuleId[Krebskriegerin]
+ModuleName[Krebskriegerin]
+ModuleIcon[sword]
+ModuleInfo[Der Blog von Susanna nun auch bei MONK.]
+
+DashboardWidget
+Image[height=80.0;asset=krebskriegerin.png]
+
+Page[base=column]
+WebView[https://www.facebook.com/krebskriegerin/]
+
+
