@@ -572,6 +572,8 @@ class PillTrackerModule extends BasicModule {
                       iconSize: 36,
                       icon: Icon(Icons.upload_rounded),
                       onPressed: () async {
+                        Navigator.pop(context);
+
                         FilePickerResult result =
                             await FilePicker.platform.pickFiles();
 
@@ -585,7 +587,6 @@ class PillTrackerModule extends BasicModule {
                                           fixedFolder: planFolder),
                                   transitionDuration: Duration(seconds: 0)));
                         } else {
-                          Navigator.pop(context);
                           // User canceled the picker
                         }
                       }),
@@ -598,6 +599,7 @@ class PillTrackerModule extends BasicModule {
                     iconSize: 36,
                     icon: Icon(Icons.add_a_photo),
                     onPressed: () {
+                      Navigator.pop(context);
                       Navigator.push(
                           context,
                           PageRouteBuilder(
@@ -616,6 +618,7 @@ class PillTrackerModule extends BasicModule {
                           iconSize: 36,
                           icon: Icon(MdiIcons.pill),
                           onPressed: () {
+                            Navigator.pop(context);
                             Navigator.push(
                                     context,
                                     MaterialPageRoute(
