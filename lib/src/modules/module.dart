@@ -188,6 +188,12 @@ class Module extends BasicModule {
     return hasFAB;
   }
 
+  Future<String> get _tempPath async {
+    final directory = await getTemporaryDirectory();
+
+    return directory.path;
+  }
+
   Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
 
@@ -233,13 +239,16 @@ class Module extends BasicModule {
                 "_" +
                 DateFormat().addPattern("dd_MM_yy").format(DateTime.now()) +
                 ".pdf";
-            _localPath.then((path) async {
+            _tempPath.then((path) async {
               String fullname = "$path/${filename}";
-              await writeToFile(pdfdata, "$path/${filename}");
+              await writeToFile(pdfdata, fullname);
               Share.shareFiles(
                 [fullname],
                 text: 'Hello, check your share files!',
-              );
+              ).then((value) {
+                File tempFile = File(fullname);
+                tempFile.delete();
+              });
             });
           });
         }

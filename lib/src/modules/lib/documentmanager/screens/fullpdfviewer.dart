@@ -54,7 +54,7 @@ class FullPDFViewerState extends State<FullPDFViewer> {
                 ),
                 path: dir);
           } else if (snapshot.hasError) {
-            children = Wrap(children: <Widget>[
+            children = Scaffold(body:Wrap(children: <Widget>[
               Icon(
                 Icons.error_outline,
                 color: Colors.red,
@@ -64,10 +64,10 @@ class FullPDFViewerState extends State<FullPDFViewer> {
                 padding: const EdgeInsets.only(top: 16),
                 child: Text('Error: ${snapshot.error}'),
               )
-            ]);
+            ]));
           } else {
             alignment = MainAxisAlignment.center;
-            children = Wrap(children: <Widget>[
+            children =Scaffold(body: Wrap(children: <Widget>[
               SizedBox(
                 child: CircularProgressIndicator(),
                 width: 30,
@@ -77,7 +77,7 @@ class FullPDFViewerState extends State<FullPDFViewer> {
                 padding: EdgeInsets.only(top: 16),
                 child: Text('Lade PDF...'),
               )
-            ]);
+            ]));
           }
           return children;
         });

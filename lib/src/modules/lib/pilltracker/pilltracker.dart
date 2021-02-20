@@ -502,7 +502,6 @@ class PillTrackerModule extends BasicModule {
       // sets the background color of the `BottomNavigationBar`
       /*canvasColor: Colors.green,*/
       // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-        primaryColor: Colors.red,
         highlightColor: Theme.of(context).accentColor,
         textTheme: Theme
             .of(context)

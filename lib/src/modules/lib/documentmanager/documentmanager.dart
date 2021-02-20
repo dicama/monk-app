@@ -59,12 +59,22 @@ class DocumentManagerModule extends BasicModule {
   }
 
   Widget getBottomNavBar(context) {
-    return BottomNavigationBar(
+    return  Theme(
+        data: Theme.of(context).copyWith(
+      // sets the background color of the `BottomNavigationBar`
+      /*canvasColor: Colors.green,*/
+      // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+        highlightColor: Theme.of(context).accentColor,
+        textTheme: Theme
+            .of(context)
+            .textTheme
+            .copyWith(caption: new TextStyle(color: Theme.of(context).primaryColorDark))), // sets the inactive color of the `BottomNavigationBar`
+    child: BottomNavigationBar(
       onTap: (index) => this.bottomNavBarTap(index, context),
       type: BottomNavigationBarType.fixed,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: this.getModuleIcon(),
+          icon: this.getModuleIcon(color:null),
           label: 'Home',
         ),
         BottomNavigationBarItem(
@@ -80,8 +90,9 @@ class DocumentManagerModule extends BasicModule {
           label: 'Mehr',
         ),
       ],
-      selectedItemColor: Theme.of(context).accentColor,
-    );
+        selectedItemColor: Theme.of(context).primaryColorDark,
+        selectedIconTheme: Theme.of(context).iconTheme.copyWith(color: Theme.of(context).primaryColorDark)
+    ));
   }
 
   @override

@@ -1,11 +1,16 @@
+import 'dart:io';
+
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:monk/src/modules/lib/documentmanager/screens/editfile.dart';
 import 'package:monk/src/modules/lib/documentmanager/screens/pdfviewer.dart';
 import 'package:monk/src/modules/modulewidget.dart';
 import 'package:monk/src/service/encryptedfs.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
+import 'package:share/share.dart';
 
+import '../../tools.dart';
 import 'explorerpreview.dart';
 import 'fileexplorerspecial.dart';
 
@@ -202,6 +207,12 @@ class _FilePreviewState extends State<FilePreviewWidget> {
         ]));
   }
 
+  Future<String> get _tempPath async {
+    final directory = await getTemporaryDirectory();
+
+    return directory.path;
+  }
+
   showFileMenu() {
     showModalBottomSheet<void>(
         context: context,
@@ -243,8 +254,32 @@ class _FilePreviewState extends State<FilePreviewWidget> {
                       onDelete();
                     }),
                 Text("Löschen")
-              ])))
+              ]))),
+              if(!widget.element.isDir())
+                Expanded(
+                  child: Container(
+                      child: Column(children: [
+                        IconButton(
+                            icon: Icon(Icons.share),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              _tempPath.then((path) async {
+
+                                String fullname = "$path/${widget.element.name}";
+                                await writeToFile(EncryptedFS().loadEncryptedFile(widget.element.uid), fullname);
+                                Share.shareFiles(
+                                  [fullname],
+                                  text: 'Hello, check your share files!',
+                                ).then((value) {
+                                  File tempFile = File(fullname);
+                                  tempFile.delete();
+                                });
+                              });
+                            }),
+                        Text("Teilen")
+                      ])))
             ]),
+
           );
         });
   }
