@@ -63,6 +63,7 @@ class _NotififcationCenterState extends State<NotificationCenter> {
           final id = num;
           setState(() {
             nots[id].unread = false;
+            NotificationManager().calcNumberOfUnreadNotifications();
           });
 
           // Show a snackbar. This snackbar could also contain "Undo" actions.
