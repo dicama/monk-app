@@ -4,8 +4,7 @@
     <item android:drawable="@android:color/white" />
 
     <!-- You can insert your own image assets here -->
-    <item android:width="290dp"
-        android:height="311dp"
+    <item
         android:drawable="@drawable/splashimg"
         android:gravity="center">
 
