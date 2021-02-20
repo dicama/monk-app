@@ -37,7 +37,7 @@ class Module extends BasicModule {
   var locals = new Map();
   bool first = true;
   bool tabbed = false;
-  String moduleInfo = "";
+
   String filename = "";
 
   Module(String input, {this.filename, iconUrl1}) {

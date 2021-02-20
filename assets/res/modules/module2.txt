@@ -2,7 +2,7 @@ ModuleId[Stuhltracker_old]
 ModuleName[Alter Stuhlgangtracker]
 ModuleAddresses[address=poopseries;label=Stuhlgang-Daten;description=An dieser Stelle werden deine Stuhlgangs-Daten erfasst.]
 ModuleIcon[toilet]
-ModuleInfo[Das Stuhltracker Modul hilft Dir dabei deinen Stuhl zu tracken es sollte für Dich damit kein Problem sein deinen Stuhl im Blick zu halten.]
+ModuleInfo[Der Stuhltracker hilft Dir Dabei, Deinen Toilettengang zu erfassen und Veränderungen schnell zu bemerken. Der Report zeigt die Daten übersichtlich an und ist eine Unterstützung im Arztgespräch.]
 ModuleFABAction[Neuer Eintrag]
 TimeSeries[address=poopseries]{date,consistency,pain,color,poop}
 ValueLabelPairs[name=poopseries.pain;values=0,1;labels=keine Schmerzen,Schmerzen]

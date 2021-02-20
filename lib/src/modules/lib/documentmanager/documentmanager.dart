@@ -22,11 +22,13 @@ class DocumentManagerModule extends BasicModule {
   UpdateVoidFunction update;
   FileSysDirectory mainDirectory;
 
+
   DocumentManagerModule() {
     name = "Dokumentenmanager";
     icon = "fileAccountOutline";
     id = DocumentManagerModule.documentManagerId;
     mainDirectory = EncryptedFS().getRoot();
+    moduleInfo = "Mit dem Dokumentenmanager kannst Du Deine Dokumente und Schriftverkehr rund um den Krebs übersichtlich organisieren. So hast Du alle Dokumente sofort zur Hand, wenn Du sie benötigst.";
     AccessLayer().register(id, "filesystem", "Verschluesseltes Dateisystem", "Blabalbalabl");
     AccessLayer().register(id, "filesystemver", "Version des Enc Dateisystems", "Blabalbalabl");
   }
@@ -39,20 +41,7 @@ class DocumentManagerModule extends BasicModule {
         break;
 
       case 1:
-        showDialog(
-            context: bc,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: Text('Info'),
-                content: SingleChildScrollView(
-                  child: ListBody(
-                    children: <Widget>[
-                      Text("Text yes yes yo"),
-                    ],
-                  ),
-                ),
-              );
-            });
+        showModuleInfo(bc);
         break;
 
       case 2:

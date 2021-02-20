@@ -443,6 +443,7 @@ class PillTrackerModule extends BasicModule {
   PillTrackerModule() {
     name = "Pillentracker";
     icon = "pill";
+    moduleInfo = "Der Pillentracker unterstützt dich bei der Organisation deiner Medikation, damit du deine Medizin rechtzeitig und vollständig nimmst. Im Medikamentenschrank hast du den Überblick über deine Vorräte und siehst frühzeitig, welche Medikamente du wieder aufstocken musst.";
     id = PillTrackerModule.pillTrackerId;
     availableCameras().then((test) {
       cameras = test;
@@ -468,6 +469,7 @@ class PillTrackerModule extends BasicModule {
         break;
 
       case 1:
+        showModuleInfo(bc);
         break;
 
       case 2:

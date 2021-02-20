@@ -36,6 +36,23 @@ abstract class BasicModule
     return () {};
   }
 
+  showModuleInfo(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Info'),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Text(moduleInfo),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
   Widget getModuleIcon({ double size: 24.0,color: Colors.black }) {
     if (iconUrl == null && icon == null) {
       return Icon(Icons.error);
@@ -50,6 +67,7 @@ abstract class BasicModule
   String base = "list";
   String icon ="";
   String name ="";
+  String moduleInfo = "";
   List<AddressOwnerAttempt> addresses = new List();
   List<AddressAccessAttempt> readAccess = new List();
 }
