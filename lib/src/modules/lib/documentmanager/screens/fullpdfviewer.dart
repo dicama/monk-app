@@ -24,7 +24,7 @@ class FullPDFViewerState extends State<FullPDFViewer> {
 
   Future<String> load() async {
     final temppath = (await getApplicationDocumentsDirectory()).path;
-    dir = '$temppath/${DateTime.now().toIso8601String().replaceAll("_", "").replaceAll(":", "").replaceAll(".", "")}';
+    dir = '$temppath/${DateTime.now().toIso8601String().replaceAll("_", "").replaceAll(":", "").replaceAll(".", "")}.pdf';
     final File file = File(dir);
     await file.writeAsBytes(widget.bytes);
     print("written file " + dir);
