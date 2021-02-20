@@ -22,7 +22,7 @@ class _NotififcationCenterState extends State<NotificationCenter> {
     }
     List<Widget> wigs = getNCWidgets(context, nots);
     return MonkScaffold(
-      title: "Benachrichtigunen",
+      title: "Benachrichtigungen",
       body: ListView.separated(
 
           /*expansionCallback: (num, expan) {
