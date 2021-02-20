@@ -471,7 +471,6 @@ class EncryptedFS {
     decipher = CBCBlockCipher(AESFastEngine());
     var iv = enc.IV.fromBase64(credentials['iv']);
     var key = enc.Key.fromUtf8(credentials['key']);
-    debugPrint('init datalayer');
     decipher.init(false, ParametersWithIV(KeyParameter(key.bytes), iv.bytes));
 
     File file = File(pathToEnc + "/" + uid);
@@ -489,7 +488,6 @@ class EncryptedFS {
           list8in, i * decipher.blockSize, list8out, i * decipher.blockSize);
     }
     int outputsize = raw.lengthInBytes - padding - 2;
-    print(outputsize);
     return outbuff.buffer.asUint8List(0, outputsize);
   }
 
