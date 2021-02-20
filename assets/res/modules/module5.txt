@@ -2,7 +2,7 @@ ModuleId[Gewichttracker]
 ModuleName[Gewichttracker]
 ModuleAddresses[address=weightseries;label=Gewichtsdaten;description=An dieser Stelle werden deine Gewichtsdaten erfasst.]
 ModuleIcon[weightKilogram]
-ModuleInfo[Das Gewichttracker Modul hilft Dir dabei deinen Gewicht zu tracken es sollte für Dich damit kein Problem sein dein Gewicht im Blick zu halten.]
+ModuleInfo[Der Gewichttracker hilft Dir dabei, Dein Gewicht im Blick zu halten, Veränderungen schnell zu bemerken und entgegen zu wirken. Du kannst Dir im Modul zusätzlich einen Report, über Deinen Gewichtsverlauf erstellen, der Dir als Unterstützung im Arztgespräch dient.]
 ModuleFABAction[Neuer Eintrag]
 TimeSeries[address=weightseries]{date,value,color}
 HandleAction[on=action;key=weightseries;action=Neuer Eintrag:mode=edit]
