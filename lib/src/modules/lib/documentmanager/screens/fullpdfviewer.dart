@@ -24,10 +24,9 @@ class FullPDFViewerState extends State<FullPDFViewer> {
 
   Future<String> load() async {
     final temppath = (await getApplicationDocumentsDirectory()).path;
-    dir = '$temppath/test.pdf';
+    dir = '$temppath/${DateTime.now().toIso8601String().replaceAll("_", "").replaceAll(":", "").replaceAll(".", "")}';
     final File file = File(dir);
     await file.writeAsBytes(widget.bytes);
-    print("done");
     return "done";
   }
 
@@ -50,13 +49,7 @@ class FullPDFViewerState extends State<FullPDFViewer> {
           if (snapshot.hasData) {
             children = PDFViewerScaffold(
                 appBar: AppBar(
-                  title: Text("Document"),
-                  actions: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.share),
-                      onPressed: () {},
-                    ),
-                  ],
+                  title: Text(widget.title, overflow: TextOverflow.fade),
                 ),
                 path: dir);
           } else if (snapshot.hasError) {
