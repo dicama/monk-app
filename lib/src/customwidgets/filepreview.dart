@@ -205,10 +205,10 @@ class _FilePreviewState extends State<FilePreviewWidget> {
   showFileMenu() {
     showModalBottomSheet<void>(
         context: context,
-        builder: (BuildContext context) {
+        builder: (BuildContext context1) {
           return Container(
             height: 100,
-            padding: EdgeInsets.only(top:12),
+            padding: EdgeInsets.only(top: 12),
             color: Colors.white,
             child: Row(children: [
               Expanded(
@@ -216,6 +216,7 @@ class _FilePreviewState extends State<FilePreviewWidget> {
                 IconButton(
                   icon: Icon(Icons.edit),
                   onPressed: () {
+                    Navigator.pop(context);
                     onEdit();
                   },
                 ),
@@ -226,14 +227,21 @@ class _FilePreviewState extends State<FilePreviewWidget> {
                       child: Column(children: [
                 IconButton(
                     icon: Icon(Icons.drive_file_move_outline),
-                    onPressed: onMove),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      onMove();
+                    }),
                 Text("Verschieben")
               ]))),
               Expanded(
                   child: Container(
                       child: Column(children: [
                 IconButton(
-                    icon: Icon(Icons.delete_outline), onPressed: onDelete),
+                    icon: Icon(Icons.delete_outline),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      onDelete();
+                    }),
                 Text("Löschen")
               ])))
             ]),
@@ -318,9 +326,7 @@ class _FilePreviewState extends State<FilePreviewWidget> {
                     onPressed: () {
                       // Hier passiert etwas
                       var count = 0;
-                      Navigator.popUntil(context, (route) {
-                        return count++ == 1;
-                      });
+                      Navigator.pop(context);
                     }),
                 FlatButton(
                   child: Text('Okay'),
@@ -328,9 +334,8 @@ class _FilePreviewState extends State<FilePreviewWidget> {
                     widget.element.delete();
                     print("deleting");
                     var count = 0;
-                    Navigator.of(context).popUntil((route) {
-                      return count++ == 1;
-                    });
+                    Navigator.pop(context);
+
                   },
                 ),
               ],
@@ -346,17 +351,13 @@ class _FilePreviewState extends State<FilePreviewWidget> {
                       onPressed: () {
                         // Hier passiert etwas
                         var count = 0;
-                        Navigator.popUntil(context, (route) {
-                          return count++ == 1;
-                        });
+                        Navigator.pop(context);
+
                       })
                 ]);
           }
         });
 
-    Navigator.popUntil(context, (route) {
-      return count++ == 1;
-    });
   }
 
   Widget buildDir(context, FileSysDirectory element) {
