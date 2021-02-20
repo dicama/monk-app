@@ -231,9 +231,11 @@ class _PillTrackerWidgetState extends State<PillTrackerWidget> with TickerProvid
                 height: 68,
                 child: Stack(children: [
                   Container(
+                    width: 68,
+                    height: 68,
                     padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
                     child: GestureDetector(
-                      child: MonkIconLib.medicationPills,
+                      child:MonkIconLib.medicationPills,
                       onLongPress: () {
                         Navigator.push(
                             context,
