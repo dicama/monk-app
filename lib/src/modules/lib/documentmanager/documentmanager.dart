@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:monk/src/customwidgets/fileexplorerspecial.dart';
 import 'package:monk/src/modules/lib/documentmanager/screens/savefile.dart';
 import 'package:monk/src/modules/lib/documentmanager/screens/takepicture.dart';
@@ -22,15 +24,17 @@ class DocumentManagerModule extends BasicModule {
   UpdateVoidFunction update;
   FileSysDirectory mainDirectory;
 
-
   DocumentManagerModule() {
     name = "Dokumentenmanager";
     icon = "fileAccountOutline";
     id = DocumentManagerModule.documentManagerId;
     mainDirectory = EncryptedFS().getRoot();
-    moduleInfo = "Mit dem Dokumentenmanager kannst Du Deine Dokumente und Schriftverkehr rund um den Krebs übersichtlich organisieren. So hast Du alle Dokumente sofort zur Hand, wenn Du sie benötigst.";
-    AccessLayer().register(id, "filesystem", "Verschluesseltes Dateisystem", "Blabalbalabl");
-    AccessLayer().register(id, "filesystemver", "Version des Enc Dateisystems", "Blabalbalabl");
+    moduleInfo =
+        "Mit dem Dokumentenmanager kannst Du Deine Dokumente und Schriftverkehr rund um den Krebs übersichtlich organisieren. So hast Du alle Dokumente sofort zur Hand, wenn Du sie benötigst.";
+    AccessLayer().register(
+        id, "filesystem", "Verschluesseltes Dateisystem", "Blabalbalabl");
+    AccessLayer().register(
+        id, "filesystemver", "Version des Enc Dateisystems", "Blabalbalabl");
   }
 
   @override
@@ -192,7 +196,7 @@ class DocumentManagerModule extends BasicModule {
     return () {
       return showModalBottomSheet<void>(
           context: context,
-          builder: (BuildContext context) {
+          builder: (BuildContext context2) {
             return Container(
               padding: EdgeInsets.only(top: 12),
               height: 100,
@@ -270,7 +274,9 @@ class DocumentManagerModule extends BasicModule {
                       iconSize: 36,
                       icon: Icon(Icons.create_new_folder_rounded),
                     )),
-            Expanded(child: Text('Neuen Ordner anlegen', textAlign: TextAlign.center))
+                    Expanded(
+                        child: Text('Neuen Ordner anlegen',
+                            textAlign: TextAlign.center))
                   ]),
                 ),
                 Expanded(
@@ -289,7 +295,9 @@ class DocumentManagerModule extends BasicModule {
                               transitionDuration: Duration(seconds: 0)));
                     },
                   )),
-            Expanded(child: Text('Neues Foto erstellen', textAlign: TextAlign.center))
+                  Expanded(
+                      child: Text('Neues Foto erstellen',
+                          textAlign: TextAlign.center))
                 ])),
                 Expanded(
                     child: Column(children: [
@@ -298,22 +306,85 @@ class DocumentManagerModule extends BasicModule {
                           iconSize: 36,
                           icon: Icon(Icons.upload_rounded),
                           onPressed: () async {
-                            Navigator.of(context).pop();
-                            FilePickerResult result =
-                                await FilePicker.platform.pickFiles();
+                            Navigator.of(context2).pop();
 
-                            if (result != null) {
-                              File file = File(result.files.single.path);
-                              Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                      pageBuilder: (context, __, ___) =>
-                                          SaveFileScreen.forFile(file),
-                                      transitionDuration:
-                                          Duration(seconds: 0)));
-                            } else {
-                              // User canceled the picker
-                            }
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context1) {
+                                  return AlertDialog(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0)),
+                                      //this right here
+                                      content: Row(mainAxisSize: MainAxisSize.min,children: [
+                                        Expanded(child:FlatButton(
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: <Widget>[
+                                                Icon(Icons
+                                                    .insert_drive_file_outlined),
+                                                Text("Dateien"),
+                                              ],
+                                            ),
+                                            onPressed: () async {
+                                              FilePickerResult result =
+                                                  await FilePicker.platform
+                                                      .pickFiles();
+
+                                              if (result != null) {
+                                                File file = File(
+                                                    result.files.single.path);
+                                                Navigator.push(
+                                                    context,
+                                                    PageRouteBuilder(
+                                                        pageBuilder: (context,
+                                                                __, ___) =>
+                                                            SaveFileScreen
+                                                                .forFile(file),
+                                                        transitionDuration:
+                                                            Duration(
+                                                                seconds: 0)));
+                                                Navigator.of(context1).pop();
+                                              } else {
+                                                // User canceled the picker
+                                              }
+                                            })),
+                                  Expanded(child:FlatButton(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: <Widget>[
+                                              Icon(Icons.photo_library),
+                                              Text("Gallerie"),
+                                            ],
+                                          ),
+                                          onPressed: () async {
+                                            final picker = ImagePicker();
+                                            final result =
+                                                await picker.getImage(
+                                                    source:
+                                                        ImageSource.gallery);
+
+                                            if (result != null) {
+                                              File file = File(result.path);
+                                              print(result.path);
+                                              Navigator.push(
+                                                  context,
+                                                  PageRouteBuilder(
+                                                      pageBuilder: (context, __,
+                                                              ___) =>
+                                                          SaveFileScreen
+                                                              .forFile(file),
+                                                      transitionDuration:
+                                                          Duration(
+                                                              seconds: 0)));
+                                              Navigator.of(context1).pop();
+                                            } else {
+                                              // User canceled the picker
+                                            }
+                                          },
+                                        ))
+                                      ]));
+                                });
                           })),
                   Expanded(
                       child:

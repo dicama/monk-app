@@ -54,7 +54,7 @@ class _NotififcationCenterState extends State<NotificationCenter> {
     /*,showBadge: unread, position: BadgePosition.topStart(top: 0, start: 0),badgeContent: Text("!"),)*/
     return Dismissible(
         // Each Dismissible must contain a Key. Keys allow Flutter to
-        // uniquely identify widgets.
+        // uniquely identify widgets.mhv
         key: Key(num.toString()),
         // Provide a function that tells the app
         // what to do after an item has been swiped away.
