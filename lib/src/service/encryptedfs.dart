@@ -230,6 +230,8 @@ class FileSysFile extends FileSysElement {
     // Resize the image to a 120x? thumbnail (maintaining the aspect ratio).
     preview = im.encodePng(im.copyResize(image, width: 120));
     isPreviewReady = true;
+    EncryptedFS().saveFileSystem();
+
     // Save the thumbnail as a PNG.
   }
 
@@ -244,6 +246,8 @@ class FileSysFile extends FileSysElement {
     // Resize the image to a 120x? thumbnail (maintaining the aspect ratio).
     preview = im.encodePng(im.copyResize(image, width: 120));
     isPreviewReady = true;
+    EncryptedFS().saveFileSystem();
+
     // Save the thumbnail as a PNG.
   }
 
@@ -485,7 +489,7 @@ class EncryptedFS {
           list8in, i * decipher.blockSize, list8out, i * decipher.blockSize);
     }
     int outputsize = raw.lengthInBytes - padding - 2;
-
+    print(outputsize);
     return outbuff.buffer.asUint8List(0, outputsize);
   }
 

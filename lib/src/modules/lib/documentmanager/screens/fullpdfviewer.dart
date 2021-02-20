@@ -48,6 +48,7 @@ class FullPDFViewerState extends State<FullPDFViewer> {
           var alignment = MainAxisAlignment.start;
           if (snapshot.hasData) {
             children = PDFViewerScaffold(
+
                 appBar: AppBar(
                   title: Text(widget.title, overflow: TextOverflow.fade),
                 ),
