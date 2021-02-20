@@ -27,6 +27,7 @@ class FullPDFViewerState extends State<FullPDFViewer> {
     dir = '$temppath/${DateTime.now().toIso8601String().replaceAll("_", "").replaceAll(":", "").replaceAll(".", "")}';
     final File file = File(dir);
     await file.writeAsBytes(widget.bytes);
+    print("written file " + dir);
     return "done";
   }
 
