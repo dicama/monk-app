@@ -203,11 +203,12 @@ class DocumentManagerModule extends BasicModule {
                     Container(
                         child: IconButton(
                       onPressed: () {
+                        Navigator.of(context).pop();
                         TextEditingController folderController =
                             TextEditingController(text: "Neuer Ordner");
                         showDialog(
                             context: context,
-                            builder: (BuildContext context) {
+                            builder: (BuildContext context1) {
                               return AlertDialog(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20.0)),
@@ -225,7 +226,7 @@ class DocumentManagerModule extends BasicModule {
                                   FlatButton(
                                       child: Text("Abbrechen"),
                                       onPressed: () {
-                                        Navigator.of(context).pop();
+                                        Navigator.of(context1).pop();
                                       }),
                                   FlatButton(
                                     child: Text("Erstellen"),
@@ -236,7 +237,7 @@ class DocumentManagerModule extends BasicModule {
                                               null) {
                                         showDialog(
                                             context: context,
-                                            builder: (BuildContext context) {
+                                            builder: (BuildContext context1) {
                                               return AlertDialog(
                                                 shape: RoundedRectangleBorder(
                                                     borderRadius:
@@ -248,7 +249,7 @@ class DocumentManagerModule extends BasicModule {
                                                   FlatButton(
                                                       child: Text("Ok"),
                                                       onPressed: () {
-                                                        Navigator.of(context)
+                                                        Navigator.of(context1)
                                                             .pop();
                                                       })
                                                 ],
@@ -259,7 +260,6 @@ class DocumentManagerModule extends BasicModule {
                                             DateTime.now(),
                                             folderController.text,
                                             mainDirectory));
-                                        Navigator.of(context).pop();
                                       }
                                     },
                                   )
@@ -280,6 +280,7 @@ class DocumentManagerModule extends BasicModule {
                     iconSize: 36,
                     icon: Icon(Icons.add_a_photo),
                     onPressed: () {
+                      Navigator.of(context).pop();
                       Navigator.push(
                           context,
                           PageRouteBuilder(
@@ -297,6 +298,7 @@ class DocumentManagerModule extends BasicModule {
                           iconSize: 36,
                           icon: Icon(Icons.upload_rounded),
                           onPressed: () async {
+                            Navigator.of(context).pop();
                             FilePickerResult result =
                                 await FilePicker.platform.pickFiles();
 
@@ -310,7 +312,6 @@ class DocumentManagerModule extends BasicModule {
                                       transitionDuration:
                                           Duration(seconds: 0)));
                             } else {
-                              Navigator.pop(context);
                               // User canceled the picker
                             }
                           })),

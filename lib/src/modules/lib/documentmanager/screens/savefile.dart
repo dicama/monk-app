@@ -97,17 +97,15 @@ class SaveFileScreenState extends State<SaveFileScreen> {
                         AccessLayer().setModuleData(DocumentManagerModule.documentManagerId, "last_entry", DateTime.now().toIso8601String());
 
                         Navigator.popUntil(context, (route) {
-                          return count++ == 4;
+                          return count++ == 3;
                         });
                       } else if (widget.file != null) {
                         currentDir.addFile(FileSysFile.fromFile(DateTime.now(),
                             _filenameController.text, currentDir, widget.file,
                             fileTags: selectedTags));
-                        var count = 0;
+
                         AccessLayer().setModuleData(DocumentManagerModule.documentManagerId, "last_entry", DateTime.now().toIso8601String());
-                        Navigator.popUntil(context, (route) {
-                          return count++ == 2;
-                        });
+                        Navigator.pop(context);
                       }
                     })
               ]),
