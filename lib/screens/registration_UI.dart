@@ -20,7 +20,7 @@ String username = "";
 String age = "";
 String gender = "";
 String dateOfDiagnose = "";
-String diagnose = 'Deine Diagnose';
+String diagnose = 'Keine Angabe';
 int tag = 1;
 
 class IntroPage extends StatefulWidget {
@@ -283,7 +283,7 @@ class _IntroPageState extends State<IntroPage> {
                         });
                       },
                       items: <String>[
-                        'Deine Diagnose',
+                        'Keine Angabe',
                         'Darmkrebs',
                         'Brustkrebs',
                         'Lungenkrebs',
@@ -523,20 +523,13 @@ class _IntroPageState extends State<IntroPage> {
     );
   }
 
-  _displayImage(int path) {
-    return Image.asset(
-      "assets/$path.png",
-      height: MediaQuery.of(context).size.height * .5,
-    );
-  }
-
   void saveData() {
     AccessLayer().setData("GENERAL", "0&Datenschutz", _checkedDataSecurity);
     AccessLayer().setData("GENERAL", "0&Name", username);
     AccessLayer().setData("GENERAL", "0&Alter", age);
     AccessLayer().setData("GENERAL", "0&Geschlecht", gender);
     AccessLayer().setData("GENERAL", "0&DatumDerDiagnose", dateOfDiagnose);
-    AccessLayer().setData("GENERAL", "0&Diagnose", "keine Angabe");
+    AccessLayer().setData("GENERAL", "0&Diagnose", diagnose);
 
     Settings settings = AccessLayer().getSettings();
     settings.onboardingDone = onboardingDone;
