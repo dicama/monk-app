@@ -71,8 +71,7 @@ dependencies:
   uuid: ^2.2.2
   camera: ^0.6.0
   url_launcher: ^5.7.10
-
-
+  flutter_full_pdf_viewer: ^1.0.6
 
 
 dev_dependencies:

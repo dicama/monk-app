@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monk/src/modules/lib/documentmanager/screens/fullpdfviewer.dart';
 import 'package:monk/src/modules/lib/documentmanager/screens/imgviewer.dart';
 import 'package:monk/src/service/encryptedfs.dart';
 
@@ -22,7 +23,7 @@ class FileOpenHandler {
       await Navigator.of(context).push(
         MaterialPageRoute(
             builder: (context) =>
-                PDFViewer(file.name, EncryptedFS().loadEncryptedFile(file.uid))),
+                FullPDFViewer(file.name, EncryptedFS().loadEncryptedFile(file.uid))),
       );
     }
 
