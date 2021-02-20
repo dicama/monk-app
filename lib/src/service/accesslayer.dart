@@ -3,12 +3,15 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:encrypt/encrypt.dart';
+import 'package:flutter/material.dart' as ma;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:monk/src/dto/addressAccess.dart';
 import 'package:monk/src/dto/addressOwner.dart';
 import 'package:monk/src/dto/settings.dart';
 import 'package:monk/src/dto/timeSeriesType.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../globalsettings.dart';
 
 class AccessLayer {
   static final AccessLayer _instance = AccessLayer._internal();
@@ -222,6 +225,156 @@ class _DataLayer {
     // init things inside this
   }
 
+
+  initDummyData() {
+
+    final int brownCol = ma.Color.fromRGBO(78, 51, 22, 1.0).value;
+    final int  greenCol = ma.Color.fromRGBO(86, 100, 20, 1.0).value;
+    final int  lehmCol = ma.Color.fromRGBO(147, 143, 124, 1.0).value;
+    final int  yelCol = ma.Color.fromRGBO(187, 172, 46, 1.0).value;
+    final int  rotCol = ma.Color.fromRGBO(126, 6, 38, 1.0).value;
+    final int  schwarzCol = ma.Color.fromRGBO(34, 30, 0, 1.0).value;
+    // "Einzelne, feste Kügelchen#Wurstförmig, aber klumpig#Wurstförmig, mit rissiger Oberfläche#Wurstförmig mit glatter Oberfläche#Einzelne, weiche Klümpchen#Sehr weiche, breiige Klümpchen#Flüssig, ohne feste Bestandteile"
+    var poopseries = [
+      {
+        "date": DateTime.now().subtract(Duration(days:0, hours:1)).toIso8601String(),
+        "consistency": "Einzelne, feste Kügelchen",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },
+      {
+        "date": DateTime.now().subtract(Duration(days:1, hours: 12)).toIso8601String(),
+        "consistency": "Einzelne, feste Kügelchen",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },
+      {
+        "date": DateTime.now().subtract(Duration(days:1, hours: 17)).toIso8601String(),
+        "consistency": "Wurstförmig, mit rissiger Oberfläche",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },
+      {
+        "date": DateTime.now().subtract(Duration(days:2, hours: 9)).toIso8601String(),
+        "consistency": "Wurstförmig, mit rissiger Oberfläche",
+        "color": greenCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },
+      {
+        "date": DateTime.now().subtract(Duration(days:2, hours: 12)).toIso8601String(),
+        "consistency": "Einzelne, feste Kügelchen",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },{
+        "date": DateTime.now().subtract(Duration(days:2, hours: 17)).toIso8601String(),
+        "consistency": "Wurstförmig, mit rissiger Oberfläche",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },{
+        "date": DateTime.now().subtract(Duration(days:1, hours: 12)).toIso8601String(),
+        "consistency": "Wurstförmig, mit rissiger Oberfläche",
+        "color": lehmCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },{
+        "date": DateTime.now().subtract(Duration(days:3, hours: 12)).toIso8601String(),
+        "consistency": "Einzelne, feste Kügelchen",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },{
+        "date": DateTime.now().subtract(Duration(days:4, hours: 12)).toIso8601String(),
+        "consistency": "Wurstförmig, mit rissiger Oberfläche",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },{
+        "date": DateTime.now().subtract(Duration(days:4, hours: 17)).toIso8601String(),
+        "consistency": "Wurstförmig, mit rissiger Oberfläche",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },
+      {
+        "date": DateTime.now().subtract(Duration(days:5, hours: 17)).toIso8601String(),
+        "consistency": "Flüssig, ohne feste Bestandteile",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },{
+        "date": DateTime.now().subtract(Duration(days:5, hours: 12)).toIso8601String(),
+        "consistency": "Flüssig, ohne feste Bestandteile",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },
+      {
+        "date": DateTime.now().subtract(Duration(days:5, hours: 11)).toIso8601String(),
+        "consistency": "Flüssig, ohne feste Bestandteile",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },
+      {
+        "date": DateTime.now().subtract(Duration(days:5, hours: 10)).toIso8601String(),
+        "consistency": "Flüssig, ohne feste Bestandteile",
+        "color": rotCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      }
+      ,{
+        "date": DateTime.now().subtract(Duration(days:5, hours: 9)).toIso8601String(),
+        "consistency": "Flüssig, ohne feste Bestandteile",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },{
+        "date": DateTime.now().subtract(Duration(days:6, hours: 12)).toIso8601String(),
+        "consistency": "Wurstförmig, mit rissiger Oberfläche",
+        "color": brownCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      },{
+        "date": DateTime.now().subtract(Duration(days:7, hours: 17)).toIso8601String(),
+        "consistency": "Wurstförmig, mit rissiger Oberfläche",
+        "color": greenCol,
+        "value": 1,
+        "pain": 0,
+        "tags": []
+      }
+
+
+
+
+    ];
+
+    setData("poopseries", poopseries);
+    setData("Stuhltracker_old->last_entry", DateTime.now().toIso8601String());
+    setData("document_manager->last_entry", DateTime.now().toIso8601String());
+  }
+
   init() async {
     Stopwatch stopwatch = new Stopwatch()..start();
     storage = await SharedPreferences.getInstance();
@@ -262,6 +415,12 @@ class _DataLayer {
       }
     }
     print('DataLayer inititated in ${stopwatch.elapsed}');
+
+    if(GlobalSettings.generateDummyData) {
+      if (getData("poopseries") == null) {
+        initDummyData();
+      }
+    }
 
   }
 

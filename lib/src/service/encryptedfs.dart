@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:image/image.dart' as im;
+import 'package:monk/globalsettings.dart';
 import 'package:monk/src/modules/lib/documentmanager/documentmanager.dart';
 import 'package:monk/src/service/accesslayer.dart';
 import 'package:native_pdf_renderer/native_pdf_renderer.dart';
@@ -559,6 +560,22 @@ class EncryptedFS {
         }
       });
     }
+
+    if(GlobalSettings.generateDummyData)
+    {
+      if(getRoot().getChildren().singleWhere((element) {return element.name == "Impfausweis.pdf";}, orElse: () {return null;}) == null) {
+        initDummyData();
+      }
+    }
+  }
+
+  initDummyData() async
+  {
+    await rootBundle.load('assets/examples/MRP_Stuhlgangtracker.pdf').then((value) { getRoot().addFile(FileSysFile.fromBytesPDF(DateTime.now(), "MRP_Stuhlgangtracker.pdf", files["root"], value.buffer.asUint8List()));});
+    await rootBundle.load('assets/examples/Impfausweis.pdf').then((value) { getRoot().addFile(FileSysFile.fromBytesPDF(DateTime.now(), "Impfausweis.pdf", files["root"], value.buffer.asUint8List()));});
+    await rootBundle.load('assets/examples/Arztbrief.pdf').then((value) { getRoot().getChildDirWithName("Arztbriefe").addFile(FileSysFile.fromBytesPDF(DateTime.now(), "Arztbrief.pdf", getRoot().getChildDirWithName("Arztbriefe"), value.buffer.asUint8List()));});
+    await rootBundle.load('assets/examples/Labor.pdf').then((value) { getRoot().getChildDirWithName("Laborwerte").addFile(FileSysFile.fromBytesPDF(DateTime.now(), "Labor.pdf", getRoot().getChildDirWithName("Laborwerte"), value.buffer.asUint8List()));});
+
   }
 
   List<FileSysFile> getRecentlyAddedFiles(int number) {

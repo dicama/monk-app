@@ -111,6 +111,7 @@ flutter:
   assets:
     - assets/res/modules/
     - assets/res/pool/
+    - assets/examples/
     - assets/icons/pool/
     - assets/icons/pool/medication/
     - assets/icons/pool/daytime/
