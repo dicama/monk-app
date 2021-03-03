@@ -365,7 +365,7 @@ class DocumentManagerModule extends BasicModule {
                                             mainAxisSize: MainAxisSize.min,
                                             children: <Widget>[
                                               Icon(Icons.photo_library),
-                                              Text("Gallerie"),
+                                              Text("Galerie"),
                                             ],
                                           ),
                                           onPressed: () async {
