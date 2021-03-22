@@ -10,8 +10,7 @@ import 'package:monk/src/service/accesslayer.dart';
 
 class _AppStoreState extends State<AppStore> {
   Future<http.Response> fetchList() {
-    return http.get(
-        'https://api.github.com/repos/dicama/monk-modules/contents/modules?ref=main');
+    return http.get(Uri.parse('https://api.github.com/repos/dicama/monk-modules/contents/modules?ref=main'));
   }
 
   Future<http.Response> fetchModule(var url) {

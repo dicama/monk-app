@@ -1,21 +1,9 @@
 import 'dart:io';
-import 'dart:math' as math;
-import 'dart:typed_data';
-import 'dart:ui';
-import 'package:camera/camera.dart';
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tags/input_tags.dart';
-import 'package:flutter_tags/selectable_tags.dart';
+import 'package:intl/intl.dart';
 import 'package:monk/src/customwidgets/addabletags.dart';
-import 'package:monk/src/customwidgets/fileexplorer.dart';
-import 'package:monk/src/customwidgets/filepreview.dart';
-import 'package:monk/src/modules/lib/documentmanager/documentmanagerwidget.dart';
-import 'package:monk/src/pdf_templates/pdfgenerator.dart';
 import 'package:monk/src/service/encryptedfs.dart';
-import 'package:path/path.dart' show basename, join;
-import 'package:path_provider/path_provider.dart';
-import 'package:share/share.dart';
+import 'package:path/path.dart' show basename;
 
 import '../../../../../tools.dart';
 import '../../../../../screens/croppicture.dart';

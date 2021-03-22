@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:local_auth_device_credentials/auth_strings.dart';
-import 'package:local_auth_device_credentials/local_auth.dart';
+import 'package:local_auth/auth_strings.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:monk/main.dart';
 
 class LockScreen extends StatefulWidget {

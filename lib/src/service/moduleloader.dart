@@ -54,7 +54,7 @@ class ModuleLoader {
   ModuleLoader._internal() {}
 
   Future<http.Response> fetchList() {
-    return http.get(gitHubUrl + gitHubRef);
+    return http.get(Uri.parse(gitHubUrl + gitHubRef));
   }
 
   Future<String> get _localPath async {
@@ -157,7 +157,7 @@ class ModuleLoader {
   Future<String> _loadIconUrl(String moduleName) async {
     moduleName = _getFileNameWithoutEnding(moduleName);
 
-    var resp = await http.get(gitHubUrl + "/" + moduleName + "/assets/icon.svg" + gitHubRef);
+    var resp = await http.get(Uri.parse(gitHubUrl + "/" + moduleName + "/assets/icon.svg" + gitHubRef));
     if (resp.statusCode == 200) {
       return jsonDecode(resp.body)["download_url"];
     }
@@ -168,7 +168,7 @@ class ModuleLoader {
   _loadIcon(String moduleName, String modulePath) async {
     moduleName = _getFileNameWithoutEnding(moduleName);
 
-    var resp = await http.get(gitHubUrl + "/" + moduleName + "/assets/icon.svg" + gitHubRef);
+    var resp = await http.get(Uri.parse(gitHubUrl + "/" + moduleName + "/assets/icon.svg" + gitHubRef));
     if (resp.statusCode == 200) {
       var downloadUrl = jsonDecode(resp.body)["download_url"];
       var download = await http.get(downloadUrl);

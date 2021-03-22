@@ -1,6 +1,6 @@
-import 'package:date_time_picker/date_time_picker.dart' as dtp;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:monk/src/modules/module.dart';
 import 'package:monk/src/templates/elements/basicelement.dart';
 
@@ -47,7 +47,6 @@ class _DateTimeElementState extends State<DateTimeElementWidget> {
                           .copyWith(alwaysUse24HourFormat: true),
                       child: Theme(
                           data: Theme.of(context),
-                          isMaterialAppTheme: true,
                           child: child),
                     );
                   },
@@ -72,7 +71,7 @@ class _DateTimeElementState extends State<DateTimeElementWidget> {
                         color: Theme.of(context).accentColor, width: 2),
                     borderRadius: BorderRadius.circular(5)),
                 child: Text(
-                  dtp.DateFormat("dd.MM.yy").format(date),
+                  DateFormat("dd.MM.yy").format(date),
                   style: Theme.of(context).textTheme.headline6,
                   textAlign: TextAlign.center,
                 ),
@@ -112,7 +111,7 @@ class _DateTimeElementState extends State<DateTimeElementWidget> {
                           color: Theme.of(context).accentColor, width: 2),
                       borderRadius: BorderRadius.circular(5)),
                   child: Text(
-                    dtp.DateFormat("HH:mm").format(date),
+                    DateFormat("HH:mm").format(date),
                     style: Theme.of(context).textTheme.headline6,
                     textAlign: TextAlign.center,
                   ),

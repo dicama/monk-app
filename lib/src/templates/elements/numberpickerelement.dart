@@ -70,8 +70,8 @@ class _NumberPickerState extends State<NumberPickerWidget> {
 
   void parseScriptMeta(String input) {
     Widget returnFunc(BuildContext context) {
-      Widget widg = NumberPicker.decimal(
-          initialValue: selectedNumber,
+      Widget widg = DecimalNumberPicker(
+          value: selectedNumber,
           minValue: 0,
           maxValue: 160,
           decimalPlaces: 1,

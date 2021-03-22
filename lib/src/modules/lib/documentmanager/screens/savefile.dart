@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:camera/camera.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:monk/src/customwidgets/addabletags.dart';
 import 'package:monk/src/customwidgets/fileexplorer.dart';
 import 'package:monk/src/pdf_templates/pdfgenerator.dart';
