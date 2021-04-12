@@ -3,8 +3,6 @@ import 'package:monk/src/modules/lib/documentmanager/screens/fullpdfviewer.dart'
 import 'package:monk/src/modules/lib/documentmanager/screens/imgviewer.dart';
 import 'package:monk/src/service/encryptedfs.dart';
 
-import 'screens/pdfviewer.dart';
-
 class FileOpenHandler {
 
   static open(FileSysFile file, BuildContext context) async

@@ -1,14 +1,9 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
-import 'package:monk/src/modules/lib/documentmanager/screens/reviewpicture.dart';
-import 'package:native_pdf_view/native_pdf_view.dart';
-import 'package:path/path.dart' show join;
-import 'package:path_provider/path_provider.dart';
+
 
 
 class PDFViewer extends StatefulWidget {

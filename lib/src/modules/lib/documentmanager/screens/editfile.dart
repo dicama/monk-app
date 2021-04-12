@@ -5,9 +5,6 @@ import 'package:monk/src/customwidgets/addabletags.dart';
 import 'package:monk/src/service/encryptedfs.dart';
 import 'package:path/path.dart' show basename;
 
-import '../../../../../tools.dart';
-import '../../../../../screens/croppicture.dart';
-
 class EditFileScreen extends StatefulWidget {
   final FileSysElement element;
 

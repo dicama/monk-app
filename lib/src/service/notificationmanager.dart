@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:monk/src/notifications/notificationitem.dart';
 
 class NotificationManager {

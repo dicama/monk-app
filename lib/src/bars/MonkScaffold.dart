@@ -10,7 +10,6 @@ import 'package:monk/src/service/moduleloader.dart';
 import 'package:monk/src/service/notificationmanager.dart';
 import 'package:monk/src/screens/settingView.dart';
 import 'package:monk/src/screens/privacy.dart';
-import 'package:monk/utilities/colors.dart';
 import 'package:provider/provider.dart';
 
 import '../../main.dart';

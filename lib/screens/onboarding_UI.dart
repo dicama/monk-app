@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:monk/screens/registration_UI.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:monk/utilities/styles.dart';
 import 'package:monk/main.dart';
 
 

@@ -3,11 +3,8 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'dart:math' as math;
 import 'package:bitmap/bitmap.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:monk/src/customwidgets/moveablecropmarker.dart';
-import 'package:path/path.dart' show join;
-import 'package:path_provider/path_provider.dart';
 
 class PixPos {
   final double x;
@@ -96,7 +93,7 @@ class CropData {
             tobefore * buffer.getUint8(currentb - 4).toDouble();
         a += tothis * buffer.getUint8(currenta).toDouble() +
             tobefore * buffer.getUint8(currenta - 4).toDouble();
-    
+
       } else {
         double tothis = 1.0 - (diff - 0.5);
         double tonext = (diff - 0.5);
@@ -108,14 +105,14 @@ class CropData {
             tonext * buffer.getUint8(currentb + 4).toDouble();
         a += tothis * buffer.getUint8(currenta).toDouble() +
             tonext * buffer.getUint8(currenta + 4).toDouble();
-     
+
       }
     } else {
       r += buffer.getUint8(currentr).toDouble();
       g += buffer.getUint8(currentg).toDouble();
       b += buffer.getUint8(currentb).toDouble();
       a += buffer.getUint8(currenta).toDouble();
-   
+
     }
     if (pos.y > 1 && pos.y < newHeight - 1) {
       double diff = pos.y - pos.y.floor();
@@ -130,7 +127,7 @@ class CropData {
             tobefore * buffer.getUint8(currentb - 4*newWidth).toDouble();
         a += tothis * buffer.getUint8(currenta).toDouble() +
             tobefore * buffer.getUint8(currenta - 4*newWidth).toDouble();
-     
+
       } else {
         double tothis = 1.0 - (diff - 0.5);
         double tonext = (diff - 0.5);
@@ -142,14 +139,14 @@ class CropData {
             tonext * buffer.getUint8(currentb + 4*newWidth).toDouble();
         a += tothis * buffer.getUint8(currenta).toDouble() +
             tonext * buffer.getUint8(currenta + 4*newWidth).toDouble();
-   
+
       }
     } else {
       r += buffer.getUint8(currentr).toDouble();
       g += buffer.getUint8(currentg).toDouble();
       b += buffer.getUint8(currentb).toDouble();
       a += buffer.getUint8(currenta).toDouble();
-   
+
     }
 
     return Uint8List.fromList([(r/2).floor(),(g/2).floor(),(b/2).floor(),(a/2).floor()]);

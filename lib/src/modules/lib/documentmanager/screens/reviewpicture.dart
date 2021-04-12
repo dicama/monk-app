@@ -1,7 +1,5 @@
-import 'dart:io';
 import 'dart:math' as math;
 import 'dart:typed_data';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:monk/src/service/encryptedfs.dart';
 import 'savefile.dart';

@@ -1,23 +1,13 @@
-import 'dart:io';
-
-import 'package:date_time_picker/date_time_picker.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:monk/icons/monkiconlib.dart';
 import 'package:monk/src/bars/MonkScaffold.dart';
 import 'package:monk/src/customwidgets/fileexplorerspecial.dart';
-import 'package:monk/src/modules/lib/documentmanager/documentmanager.dart';
-import 'package:monk/src/modules/lib/documentmanager/screens/savefile.dart';
-import 'package:monk/src/modules/lib/documentmanager/screens/takepicture.dart';
 import 'package:monk/src/modules/lib/pilltracker/models.dart';
 import 'package:monk/src/modules/lib/pilltracker/pilltracker.dart';
-import 'package:monk/src/service/accesslayer.dart';
-import 'package:monk/src/service/cameraservice.dart';
 import 'package:monk/src/service/encryptedfs.dart';
 import 'package:monk/src/templates/elements/basicelement.dart';
 

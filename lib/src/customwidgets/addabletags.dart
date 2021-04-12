@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:monk/src/modules/module.dart';
-import 'package:monk/src/templates/elements/basicelement.dart';
 
 typedef SelectedTagsVoid = void Function(List<String>);
 

@@ -1,13 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:ffi';
 import 'dart:io';
 import 'dart:typed_data';
-import 'dart:ui' as ui;
 
 import 'package:aes_crypt/aes_crypt.dart';
 import 'package:encrypt/encrypt.dart' as enc;
-import 'package:encrypt/encrypt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -20,7 +17,6 @@ import 'package:path/path.dart';
 import 'package:pointycastle/api.dart';
 import 'package:pointycastle/block/aes_fast.dart';
 import 'package:pointycastle/block/modes/cbc.dart';
-import 'package:pointycastle/block/modes/ecb.dart';
 import 'package:sortedmap/sortedmap.dart';
 import 'package:uuid/uuid.dart';
 

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:monk/src/modules/module.dart';
 import 'package:monk/src/service/accesslayer.dart';
 import 'package:monk/src/templates/elements/basicelement.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 class DataPoint {

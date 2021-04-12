@@ -1,19 +1,12 @@
-import 'dart:io';
-
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:monk/main.dart';
 import 'package:monk/src/bars/MonkScaffold.dart';
 import 'package:monk/src/customwidgets/explorerpreview.dart';
 import 'package:monk/src/customwidgets/fileexplorerspecial.dart';
 import 'package:monk/src/customwidgets/filepreview.dart';
 import 'package:monk/src/modules/lib/documentmanager/documentmanager.dart';
 import 'package:monk/src/modules/lib/documentmanager/fileopenhander.dart';
-import 'package:monk/src/modules/lib/documentmanager/screens/savefile.dart';
-import 'package:monk/src/modules/lib/documentmanager/screens/takepicture.dart';
 
 import 'package:monk/src/service/encryptedfs.dart';
 

@@ -3,11 +3,8 @@ import 'dart:io';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:monk/src/modules/lib/documentmanager/screens/editfile.dart';
-import 'package:monk/src/modules/lib/documentmanager/screens/pdfviewer.dart';
-import 'package:monk/src/modules/modulewidget.dart';
 import 'package:monk/src/service/encryptedfs.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:pdf/pdf.dart';
 import 'package:share/share.dart';
 
 import '../../tools.dart';

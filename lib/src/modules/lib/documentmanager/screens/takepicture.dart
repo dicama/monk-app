@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:monk/src/modules/lib/documentmanager/screens/reviewpicture.dart';

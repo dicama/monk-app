@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:monk/src/pdf_templates/elements/basicpdfelement.dart';
-import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
 class DataPoint {

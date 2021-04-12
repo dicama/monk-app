@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:monk/src/customwidgets/filepreview.dart';
 import 'package:monk/src/service/encryptedfs.dart';
 
 import 'explorerpreview.dart';

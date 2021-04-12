@@ -1,13 +1,9 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:monk/src/customwidgets/fileexplorer.dart';
 import 'package:monk/src/customwidgets/fileexplorerspecial.dart';
 import 'package:monk/src/customwidgets/filepreview.dart';
-import 'package:monk/src/modules/module.dart';
 import 'package:monk/src/service/encryptedfs.dart';
-import 'package:monk/src/templates/elements/basicelement.dart';
 
 class _FavoritesWidgetState extends State<FavoritesWidget> {
   var groupVal = -1;

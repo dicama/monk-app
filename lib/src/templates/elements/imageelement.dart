@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:monk/src/modules/module.dart';
-import 'package:monk/src/service/accesslayer.dart';
 import 'package:monk/src/templates/elements/basicelement.dart';
 
 class ImageElement extends BasicElement {

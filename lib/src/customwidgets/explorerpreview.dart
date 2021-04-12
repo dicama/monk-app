@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:monk/src/modules/lib/documentmanager/screens/pdfviewer.dart';
 import 'package:monk/src/service/encryptedfs.dart';

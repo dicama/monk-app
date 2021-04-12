@@ -11,9 +11,7 @@ import 'package:monk/src/modules/lib/documentmanager/documentmanager.dart';
 import 'package:monk/src/modules/lib/pilltracker/pilltracker.dart';
 import 'package:monk/src/modules/module.dart';
 import 'package:monk/src/modules/modulewidget.dart';
-import 'package:monk/src/notifications/notificationitem.dart';
 import 'package:monk/src/service/accesslayer.dart';
-import 'package:monk/src/service/notificationmanager.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:monk/src/bars/MonkScaffold.dart';
 import 'package:monk/src/modules/module.dart';
-import 'package:monk/src/service/notificationmanager.dart';
 import 'package:monk/src/templates/elements/basicelement.dart';
-import 'package:monk/utilities/colors.dart';
 
 import 'basicmodule.dart';
 

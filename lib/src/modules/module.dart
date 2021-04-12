@@ -1,20 +1,16 @@
 import 'dart:core';
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:monk/src/service/accesslayer.dart';
 import 'package:share/share.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:monk/src/modules/moduledashboardwidget.dart';
 import 'package:monk/src/pdf_templates/pdfgenerator.dart';
 import 'package:monk/src/templates/elements/basicelement.dart';
 import 'package:monk/src/templates/generator.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'basicmodule.dart';
 import 'modal.dart';
-import 'modulewidget.dart';
 
 class ModuleAction {
   ModuleAction(this.onEvent, this.key, this.action);
