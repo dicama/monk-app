@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
                   ],
                   supportedLocales: [
                     const Locale('en', 'US'), // English
-                    const Locale('de', 'DE'), // Hebrew
+                    const Locale('de', 'DE'), // German
                   ])));
     } else {
       return ReassembleListener(
@@ -104,7 +104,7 @@ class MyApp extends StatelessWidget {
                   ],
                   supportedLocales: [
                     const Locale('en', ''), // English
-                    const Locale('de', ''), // Hebrew
+                    const Locale('de', ''), // German
                   ])));
     }
   }
